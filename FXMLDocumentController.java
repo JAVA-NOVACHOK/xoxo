@@ -19,10 +19,9 @@ import javafx.scene.control.Button;
  * @author ARTEM
  */
 public class FXMLDocumentController implements Initializable{
-    @FXML
-    public  ButtonClass buttonClass;
-    @FXML
-    public static ArrayList<Button[]> arrButtons;    
+    
+    
+    public static ArrayList<Button[]> arrButtons = new ArrayList<>;    
     
     public static boolean isX = true;
     
@@ -66,71 +65,67 @@ public class FXMLDocumentController implements Initializable{
     @FXML  
         public void handle1(){
             if(isKey1){
-        buttonClass.handle(key1);                 
+        handle(key1);                 
         isKey1 = false;
             }
     }
     @FXML
         public void handle2(){
             if(isKey2){
-        buttonClass.handle(key2);
+        handle(key2);
         isKey2 = false;
             }
     }
     @FXML
         public void handle3(){
             if(isKey3){
-        buttonClass.handle(key3);
+        handle(key3);
         isKey3 = false;
             }
     }
     @FXML
         public void handle4(){
             if(isKey4){
-        buttonClass.handle(key4);
+        handle(key4);
         isKey4 = false;
             }
     }
     @FXML
         public void handle5(){
             if(isKey5){
-        buttonClass.handle(key5);
+        handle(key5);
         isKey5 = false;
             }
     }
     @FXML
         public void handle6(){
             if(isKey6){
-        buttonClass.handle(key6);
+        handle(key6);
         isKey6 = false;
             }
     }
     @FXML
         public void handle7(){
             if(isKey7){
-        buttonClass.handle(key7);
+        handle(key7);
         isKey7 = false;
             }
     }
     @FXML
         public void handle8(){
             if(isKey8){
-        buttonClass.handle(key8);
+        handle(key8);
         isKey8 = false;
             }
     }
     @FXML
         public void handle9(){
             if(isKey9){
-        buttonClass.handle(key9);
+        handle(key9);
         isKey9 = false;
             }
-    }
-       
-    
-    
-    
-
+    }     
+            
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         arrButtons.add(new Button[]{key1,key2,key3});
@@ -143,18 +138,37 @@ public class FXMLDocumentController implements Initializable{
         arrButtons.add(new Button[]{key3,key4,key8});
     }
     
-//    public static  ArrayList<Button[]> getArrButtons(){
-//        return arrButtons;
-//    }
-
-
+   public void handle(Button button){                    
+            if(isX){
+                button.setText("X");
+                isX = false;
+            }        
+            else{
+                button.setText("O");
+                isX = true;
+            }            
+            changeColorWinnerButtons(FXMLDocumentController.arrButtons);            
+        }
+    public String readButtonsText(Button...buttons){
+            StringBuilder sb = new StringBuilder();            
+            for (Button button : buttons) {
+                sb.append(button.getText()).toString();                
+            }            
+            return sb.toString();
+        }
         
-    
-        
-        
-        
-        
-        
+    public void changeColorWinnerButtons(List<Button[]> list){
+            
+        list.forEach((buttons) -> {
+            String text = readButtonsText(buttons);
+            if (text.equals("XXX")
+                    || text.equals("OOO")) {
+                for (Button button : buttons) {
+                    button.setStyle("-fx-background-color: crimson");
+                }
+            }
+        });
+        }        
      
 }
     
