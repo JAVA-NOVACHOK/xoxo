@@ -4,10 +4,10 @@ package xoxo;
 
 import java.util.List;
 import javafx.scene.control.Button;
+import static xoxo.FXMLDocumentController.BUTTONS;
 import static xoxo.FXMLDocumentController.isX;
 
 public class ButtonClass {
-//    FXMLDocumentController f = new FXMLDocumentController();
     
     public void handle(Button button){                    
             if(isX){
@@ -35,10 +35,22 @@ public class ButtonClass {
             if (text.equals("XXX")
                     || text.equals("OOO")) {
                 for (Button button : buttons) {
-                    button.setStyle("-fx-background-color: crimson");
-                }
+                    button.setStyle("-fx-background-color: crimson");                    
+                }                
+                disable(true);
             }
         });
         }
-
+    public void disable(boolean b){
+        for(Button button:FXMLDocumentController.BUTTONS){
+            button.setDisable(b);
+        }
+    }
+    public void activate(){
+        for(Button button:BUTTONS){
+                button.setText("");
+                button.setStyle("-fx-background-color: #16a085;");                
+            }
+            isX = true;
+    }
 } 

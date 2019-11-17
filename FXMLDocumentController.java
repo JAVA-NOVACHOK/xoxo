@@ -8,126 +8,121 @@ package xoxo;
 import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 
-/**
- *
- * @author ARTEM
- */
+
 public class FXMLDocumentController implements Initializable{
+    @FXML
+    private  ButtonClass buttonClass;
+    @FXML
+    public static ArrayList<Button[]> arrButtons = new ArrayList<>();   
+    @FXML
+    public static final ArrayList<Key> BUTTONS = new ArrayList<>(); 
     
-    
-    public static ArrayList<Button[]> arrButtons = new ArrayList<>;    
-    
-    public static boolean isX = true;
-    
-    public boolean isKey1 = true;
-    public boolean isKey2 = true;
-    public boolean isKey3 = true;
-    public boolean isKey4 = true;
-    public boolean isKey5 = true;
-    public boolean isKey6 = true;
-    public boolean isKey7 = true;
-    public boolean isKey8 = true;
-    public boolean isKey9 = true;    
-
-    
-
-        
+    public static boolean isX = true;        
     
     @FXML
-    public Button key2;
+    public Key key2;
     @FXML
-    public Button key1; 
+    public Key key1; 
     @FXML
-    public Button key3; 
+    public Key key3; 
     @FXML
-    public Button key4;
+    public Key key4;
     @FXML
-    public Button key5; 
+    public Key key5; 
     @FXML
-    public Button key6; 
+    public Key key6; 
     @FXML
-    public Button key7; 
+    public Key key7; 
     @FXML
-    public Button key8; 
+    public Key key8; 
     @FXML
-    public Button key9; 
-    
-    
-    
+    public Key key9; 
+    @FXML
+    public Button restart;
     
     
     @FXML  
         public void handle1(){
-            if(isKey1){
-        handle(key1);                 
-        isKey1 = false;
+            if(!key1.isKey()){
+        buttonClass.handle(key1);                 
+        key1.setKey(true);
             }
     }
-    @FXML
+    @FXML  
         public void handle2(){
-            if(isKey2){
-        handle(key2);
-        isKey2 = false;
+            if(!key2.isKey()){
+        buttonClass.handle(key2);                 
+        key2.setKey(true);
             }
     }
-    @FXML
+    @FXML  
         public void handle3(){
-            if(isKey3){
-        handle(key3);
-        isKey3 = false;
+            if(!key3.isKey()){
+        buttonClass.handle(key3);                 
+        key3.setKey(true);
             }
     }
-    @FXML
+    @FXML  
         public void handle4(){
-            if(isKey4){
-        handle(key4);
-        isKey4 = false;
+            if(!key4.isKey()){
+        buttonClass.handle(key4);                 
+        key4.setKey(true);
             }
     }
-    @FXML
+    @FXML  
         public void handle5(){
-            if(isKey5){
-        handle(key5);
-        isKey5 = false;
+            if(!key5.isKey()){
+        buttonClass.handle(key5);                 
+        key5.setKey(true);
             }
     }
-    @FXML
+    @FXML  
         public void handle6(){
-            if(isKey6){
-        handle(key6);
-        isKey6 = false;
+            if(!key6.isKey()){
+        buttonClass.handle(key6);                 
+        key6.setKey(true);
             }
     }
-    @FXML
+    @FXML  
         public void handle7(){
-            if(isKey7){
-        handle(key7);
-        isKey7 = false;
+            if(!key7.isKey()){
+        buttonClass.handle(key7);                 
+        key7.setKey(true);
             }
     }
-    @FXML
+    @FXML  
         public void handle8(){
-            if(isKey8){
-        handle(key8);
-        isKey8 = false;
+            if(!key8.isKey()){
+        buttonClass.handle(key8);                 
+        key8.setKey(true);
             }
     }
-    @FXML
+    @FXML  
         public void handle9(){
-            if(isKey9){
-        handle(key9);
-        isKey9 = false;
+            if(!key9.isKey()){
+        buttonClass.handle(key9);                 
+        key9.setKey(true);
             }
-    }     
-            
+    }
+        @FXML
+        public void activate(){       
+            buttonClass.disable(false);
+            buttonClass.activate();
+            BUTTONS.forEach((key) -> {
+                key.setKey(false);
+        });
+        }   
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        BUTTONS.addAll(Arrays.asList(key1,key2,key3,key4,key5,key6,key7,key8,key9));
+        restart.setId("button_restart");
         arrButtons.add(new Button[]{key1,key2,key3});
         arrButtons.add(new Button[]{key4,key5,key6});
         arrButtons.add(new Button[]{key7,key8,key9});
@@ -135,41 +130,8 @@ public class FXMLDocumentController implements Initializable{
         arrButtons.add(new Button[]{key7,key2,key4});
         arrButtons.add(new Button[]{key3,key5,key9});
         arrButtons.add(new Button[]{key1,key4,key9});
-        arrButtons.add(new Button[]{key3,key4,key8});
-    }
-    
-   public void handle(Button button){                    
-            if(isX){
-                button.setText("X");
-                isX = false;
-            }        
-            else{
-                button.setText("O");
-                isX = true;
-            }            
-            changeColorWinnerButtons(FXMLDocumentController.arrButtons);            
-        }
-    public String readButtonsText(Button...buttons){
-            StringBuilder sb = new StringBuilder();            
-            for (Button button : buttons) {
-                sb.append(button.getText()).toString();                
-            }            
-            return sb.toString();
-        }
-        
-    public void changeColorWinnerButtons(List<Button[]> list){
-            
-        list.forEach((buttons) -> {
-            String text = readButtonsText(buttons);
-            if (text.equals("XXX")
-                    || text.equals("OOO")) {
-                for (Button button : buttons) {
-                    button.setStyle("-fx-background-color: crimson");
-                }
-            }
-        });
-        }        
-     
+        arrButtons.add(new Button[]{key3,key4,key8});        
+    }    
 }
     
 
