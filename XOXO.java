@@ -17,23 +17,34 @@ import javafx.stage.Stage;
  */
 public class XOXO extends Application {
     
-    
+    private static Scene scene;
+    private static ChangeSceneClass changeScene;
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+        changeScene = new ChangeSceneClass();
         
-        Scene scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("viper.css").toExternalForm());
+        scene = changeScene.getScene();
+        
+        changeScene.setScene("viper.css");
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }
 
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String[] args) {
         launch(args);
     }
+
+    public Scene getScene() {
+        return scene;
+    }    
+    
+    public static ChangeSceneClass getSetScene(){
+        return changeScene;
+    }
+    
+    
+    
     
 }

@@ -5,7 +5,7 @@
  */
 package xoxo;
 
-import java.lang.reflect.Array;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,7 +16,7 @@ import javafx.scene.control.Button;
 
 
 public class FXMLDocumentController implements Initializable{
-    @FXML
+
     private  ButtonClass buttonClass;
     @FXML
     public static ArrayList<Button[]> arrButtons = new ArrayList<>();   
@@ -120,7 +120,8 @@ public class FXMLDocumentController implements Initializable{
         }   
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL location, ResourceBundle resources){
+        buttonClass = new ButtonClass();
         BUTTONS.addAll(Arrays.asList(key1,key2,key3,key4,key5,key6,key7,key8,key9));
         restart.setId("button_restart");
         arrButtons.add(new Button[]{key1,key2,key3});

@@ -2,6 +2,7 @@
 
 package xoxo;
 
+import java.io.IOException;
 import java.util.List;
 import javafx.scene.control.Button;
 import static xoxo.FXMLDocumentController.BUTTONS;
@@ -35,7 +36,7 @@ public class ButtonClass {
             if (text.equals("XXX")
                     || text.equals("OOO")) {
                 for (Button button : buttons) {
-                    button.setStyle("-fx-background-color: crimson");                    
+                    button.setId("winner_buttons");                    
                 }                
                 disable(true);
             }
@@ -49,8 +50,8 @@ public class ButtonClass {
     public void activate(){
         for(Button button:BUTTONS){
                 button.setText("");
-                button.setStyle("-fx-background-color: #16a085;");                
-            }
+                button.setId("button");                
+            }        
             isX = true;
     }
 } 

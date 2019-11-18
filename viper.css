@@ -21,7 +21,32 @@
    -fx-effect: dropshadow(three-pass-box,aquamarine , 20, 0, 0, 0);
 }
 
+#winner_buttons{
+    -fx-background-color: crimson;
+}
+
+
 .button {    
+  -fx-text-align: center;
+  -fx-text-transform: uppercase;  
+  -fx-cursor: pointer;
+  -fx-font-size: 50px;
+  -fx-letter-spacing: 4px;
+  -fx-position: relative;
+  -fx-background-color: #16a085;  
+  -fx-border-color: #3f4c6b;
+  -fx-border-width: 2px;
+  -fx-color: #fff;
+  /*-fx-padding: 20px;*/
+  -fx-width: 200px;
+  -fx-text-align: center;  
+  -fx-transition-duration: 0.4s;
+  -fx-overflow: hidden;
+ 
+  -fx-box-shadow: 0px, 5px, 15px, #193047;  
+  -fx-border-radius: 4px;
+}
+#button {    
   -fx-text-align: center;
   -fx-text-transform: uppercase;  
   -fx-cursor: pointer;
@@ -46,18 +71,24 @@
   -fx-background:  #fff;
   
   -fx-background-color: #fff;
-   -fx-effect: dropshadow(three-pass-box,aquamarine , 30, 0, 0, 0);
+   -fx-effect: dropshadow(gaussian,aquamarine , 30, 0, 0, 0);
 
   color: #000;
   
 }
+#button:hover {
+  -fx-background:  #fff;  
+  -fx-background-color: #fff;
+  -fx-effect: dropshadow(gaussian,aquamarine , 30, 0, 0, 0);
+  color: #000;  
+}
 
-.button:active:after {
+/*.button:active:after {
   -fx-padding: 0;
   -fx-margin: 0;
   -fx-opacity: 1;
   -fx-transition: 0s
-}
+}*/
 
 .button:disabled{
    -fx-opacity: 1;  
