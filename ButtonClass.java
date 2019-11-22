@@ -2,7 +2,6 @@
 
 package xoxo;
 
-import java.io.IOException;
 import java.util.List;
 import javafx.scene.control.Button;
 import static xoxo.FXMLDocumentController.BUTTONS;
@@ -10,7 +9,9 @@ import static xoxo.FXMLDocumentController.isX;
 
 public class ButtonClass {
     
-    public void handle(Button button){                    
+    public void handle(Key button){ 
+        
+        if(!button.isKey()){                        
             if(isX){
                 button.setText("X");
                 isX = false;
@@ -18,9 +19,13 @@ public class ButtonClass {
             else{
                 button.setText("O");
                 isX = true;
-            }            
-            changeColorWinnerButtons(FXMLDocumentController.arrButtons);            
+            }
         }
+            button.setKey(true);
+            changeColorWinnerButtons(FXMLDocumentController.arrButtons);  
+    }
+                      
+        
     public String readButtonsText(Button...buttons){
             StringBuilder sb = new StringBuilder();            
             for (Button button : buttons) {

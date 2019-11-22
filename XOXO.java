@@ -22,7 +22,7 @@ public class XOXO extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         changeScene = new ChangeSceneClass();
-        
+        stage.setTitle("Game XOXO");
         scene = changeScene.getScene();
         
         changeScene.setScene("viper.css");

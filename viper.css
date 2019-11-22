@@ -4,25 +4,28 @@
   -fx-display: flex;
   -fx-justify-content: center;
   -fx-align-items: center;
-  -fx-background: linear-gradient(to left, #606c88 , #3f4c6b);
+  -fx-background-color: linear-gradient(to bottom, #fff , #1abc9c);
+  /*-fx-background: linear-gradient();*/
   -fx-font-family: 'Oswald', sans-serif;
 }
 
 #button_restart{
-    -fx-background-color: olivedrab;
-    -fx-border-color: green;
+    -fx-background-color: orangered;
+    -fx-border-color: darkorange;
     -fx-border-width: 2px;
     -fx-font-size: 13px;
     -fx-background-radius: 5px;
+    
 }
 #button_restart:hover{
-    
+  -fx-border-color: #1abc9c;
   -fx-background-color: #fff;
-   -fx-effect: dropshadow(three-pass-box,aquamarine , 20, 0, 0, 0);
+  -fx-effect: dropshadow(three-pass-box,aquamarine , 20, 0, 0, 0);
 }
 
 #winner_buttons{
     -fx-background-color: crimson;
+    -fx-border-color: orange;
 }
 
 
@@ -57,7 +60,7 @@
   -fx-border-color: #3f4c6b;
   -fx-border-width: 2px;
   -fx-color: #fff;
-  /*-fx-padding: 20px;*/
+  /*-fx-padding: 10px;*/
   -fx-width: 200px;
   -fx-text-align: center;  
   -fx-transition-duration: 0.4s;
@@ -69,9 +72,9 @@
 
 .button:hover {
   -fx-background:  #fff;
-  
+  -fx-padding: 10px;
   -fx-background-color: #fff;
-   -fx-effect: dropshadow(gaussian,aquamarine , 30, 0, 0, 0);
+   -fx-effect: dropshadow(gaussian,chocolate , 30, 0, 0, 0);
 
   color: #000;
   
@@ -79,7 +82,7 @@
 #button:hover {
   -fx-background:  #fff;  
   -fx-background-color: #fff;
-  -fx-effect: dropshadow(gaussian,aquamarine , 30, 0, 0, 0);
+  -fx-effect: dropshadow(gaussian,chocolate , 30, 0, 0, 0);
   color: #000;  
 }
 

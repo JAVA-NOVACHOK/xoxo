@@ -48,68 +48,42 @@ public class FXMLDocumentController implements Initializable{
     
     
     @FXML  
-        public void handle1(){
-            if(!key1.isKey()){
-        buttonClass.handle(key1);                 
-        key1.setKey(true);
-            }
-    }
+        public void handle1(){           
+        buttonClass.handle(key1);                
+        }
     @FXML  
-        public void handle2(){
-            if(!key2.isKey()){
-        buttonClass.handle(key2);                 
-        key2.setKey(true);
-            }
-    }
+        public void handle2(){            
+        buttonClass.handle(key2);                
+        }
     @FXML  
-        public void handle3(){
-            if(!key3.isKey()){
+        public void handle3(){            
         buttonClass.handle(key3);                 
-        key3.setKey(true);
-            }
-    }
+        }    
     @FXML  
-        public void handle4(){
-            if(!key4.isKey()){
+        public void handle4(){           
         buttonClass.handle(key4);                 
-        key4.setKey(true);
-            }
-    }
+        }
     @FXML  
-        public void handle5(){
-            if(!key5.isKey()){
+        public void handle5(){          
         buttonClass.handle(key5);                 
-        key5.setKey(true);
-            }
-    }
+        }
     @FXML  
         public void handle6(){
-            if(!key6.isKey()){
-        buttonClass.handle(key6);                 
-        key6.setKey(true);
-            }
-    }
+        buttonClass.handle(key6);               
+        }   
     @FXML  
         public void handle7(){
-            if(!key7.isKey()){
-        buttonClass.handle(key7);                 
-        key7.setKey(true);
-            }
-    }
+        buttonClass.handle(key7);
+        }
     @FXML  
-        public void handle8(){
-            if(!key8.isKey()){
-        buttonClass.handle(key8);                 
-        key8.setKey(true);
-            }
-    }
+        public void handle8(){        
+        buttonClass.handle(key8);                
+        }
     @FXML  
-        public void handle9(){
-            if(!key9.isKey()){
+        public void handle9(){        
         buttonClass.handle(key9);                 
-        key9.setKey(true);
-            }
-    }
+        }
+        
         @FXML
         public void activate(){       
             buttonClass.disable(false);
