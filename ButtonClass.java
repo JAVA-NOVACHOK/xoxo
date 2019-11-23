@@ -2,10 +2,11 @@
 
 package xoxo;
 
+import xoxo.Controllers.FXMLDocumentController;
 import java.util.List;
 import javafx.scene.control.Button;
-import static xoxo.FXMLDocumentController.BUTTONS;
-import static xoxo.FXMLDocumentController.isX;
+import static xoxo.Controllers.FXMLDocumentController.BUTTONS;
+import static xoxo.Controllers.FXMLDocumentController.isX;
 
 public class ButtonClass {
     
@@ -48,9 +49,9 @@ public class ButtonClass {
         });
         }
     public void disable(boolean b){
-        for(Button button:FXMLDocumentController.BUTTONS){
+        FXMLDocumentController.BUTTONS.forEach((button) -> {
             button.setDisable(b);
-        }
+        });
     }
     public void activate(){
         for(Button button:BUTTONS){

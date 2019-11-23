@@ -32,8 +32,8 @@
 .button {    
   -fx-text-align: center;
   -fx-text-transform: uppercase;  
-  -fx-cursor: pointer;
-  -fx-font-size: 50px;
+  /*-fx-cursor: pointer;*/
+  -fx-font-size: 60px;
   -fx-letter-spacing: 4px;
   -fx-position: relative;
   -fx-background-color: #16a085;  
@@ -52,8 +52,8 @@
 #button {    
   -fx-text-align: center;
   -fx-text-transform: uppercase;  
-  -fx-cursor: pointer;
-  -fx-font-size: 50px;
+  /*-fx-cursor: pointer;*/
+  -fx-font-size: 60px;
   -fx-letter-spacing: 4px;
   -fx-position: relative;
   -fx-background-color: #16a085;  
@@ -72,7 +72,7 @@
 
 .button:hover {
   -fx-background:  #fff;
-  -fx-padding: 10px;
+  /*-fx-padding: 10px;*/
   -fx-background-color: #fff;
    -fx-effect: dropshadow(gaussian,chocolate , 30, 0, 0, 0);
 

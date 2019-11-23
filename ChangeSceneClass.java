@@ -10,8 +10,8 @@ import javafx.scene.Scene;
 public class ChangeSceneClass {
 private Scene scene;
 
-    public ChangeSceneClass() throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+    public ChangeSceneClass(String source) throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource(source + ".fxml"));
         scene = new Scene(root);
     }
 

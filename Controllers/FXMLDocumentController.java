@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package xoxo;
+package xoxo.Controllers;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,16 +12,19 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import xoxo.ButtonClass;
+import xoxo.Key;
 
 
 public class FXMLDocumentController implements Initializable{
 
+    @FXML
     private  ButtonClass buttonClass;
     @FXML
     public static ArrayList<Button[]> arrButtons = new ArrayList<>();   
     @FXML
     public static final ArrayList<Key> BUTTONS = new ArrayList<>(); 
-    
+    @FXML
     public static boolean isX = true;        
     
     @FXML
@@ -84,7 +86,7 @@ public class FXMLDocumentController implements Initializable{
         buttonClass.handle(key9);                 
         }
         
-        @FXML
+    @FXML
         public void activate(){       
             buttonClass.disable(false);
             buttonClass.activate();
