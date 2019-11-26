@@ -12,17 +12,15 @@ import javafx.stage.Stage;
 public class YesOrNoCloseAlertBox {    
     private static Stage stage;
     public static boolean answer;
-    public static void displayAlertBox() {
+    public static void displayAlertBox() throws IOException {
         
         Scene scene;
         stage = new Stage();
         ChangeSceneClass changeSceneClass = null;  
-        try {
-            changeSceneClass = new ChangeSceneClass("FXMLDocuments/AlertBox");
-        } catch (IOException ex) {
-            Logger.getLogger(YesOrNoCloseAlertBox.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        scene = changeSceneClass.getScene();
+        
+        changeSceneClass = new ChangeSceneClass();
+        
+        scene = changeSceneClass.installScene("FXMLDocuments/AlertBox");
         
         stage.setTitle("Game XOXO");
         stage.initModality(Modality.APPLICATION_MODAL);
@@ -40,7 +38,6 @@ public class YesOrNoCloseAlertBox {
         key.setKey(false);
         setAnswer(key.isKey());
         stage.close();
-        System.out.println(answer);
     }
     
     private static void setAnswer(boolean  b){

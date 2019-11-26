@@ -5,19 +5,25 @@
  */
 package xoxo.Controllers;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import xoxo.ButtonClass;
+import xoxo.ChangeSceneClass;
 import xoxo.Key;
 
 
 public class FXMLDocumentController implements Initializable{
-
+    
+    private String css;
+    @FXML
+    private ChangeSceneClass changeSceneClass;
     @FXML
     private  ButtonClass buttonClass;
     @FXML
@@ -85,11 +91,22 @@ public class FXMLDocumentController implements Initializable{
         public void handle9(){        
         buttonClass.handle(key9);                 
         }
+    @FXML
+        public void changeSceneClassViper(){
+            changeSceneClass.setViperScene();
+        }
+    @FXML
+        public void changeSceneClassRedDragon(){
+            changeSceneClass.setRedDragonScene();
+        }
         
     @FXML
         public void activate(){       
             buttonClass.disable(false);
             buttonClass.activate();
+            for(String s:fileNames("C:\\Users\\Master\\Dropbox\\XOXO\\src\\xoxo\\CSS_Files")){
+                System.out.println(s);
+            };
             BUTTONS.forEach((key) -> {
                 key.setKey(false);
         });
@@ -97,6 +114,7 @@ public class FXMLDocumentController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources){
+        changeSceneClass = xoxo.XOXO.getSetScene();
         buttonClass = new ButtonClass();
         BUTTONS.addAll(Arrays.asList(key1,key2,key3,key4,key5,key6,key7,key8,key9));
         restart.setId("button_restart");
@@ -109,6 +127,21 @@ public class FXMLDocumentController implements Initializable{
         arrButtons.add(new Button[]{key1,key4,key9});
         arrButtons.add(new Button[]{key3,key4,key8});        
     }    
+    
+    public static List<String> fileNames(String directoryPath) {
+    File dir = new File(directoryPath);
+    List<String> files  = new ArrayList<>();
+    if(dir.isDirectory()){
+        File[] listFiles = dir.listFiles();
+        for(File file : listFiles){
+            if(file.isFile()) {
+                files.add(file.getName());
+            }
+        }
+    }
+
+    return files;
+}
 }
     
 

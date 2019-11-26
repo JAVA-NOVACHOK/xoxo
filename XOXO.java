@@ -20,22 +20,21 @@ import javafx.stage.Stage;
  */
 public class XOXO extends Application {
     
-    private static Scene scene;
+    public static Scene scene;
     private static ChangeSceneClass changeScene;
     private Stage stage;
     @Override
     public void start(Stage window) throws Exception {
         stage = window;
-        changeScene = new ChangeSceneClass("FXMLDocuments/FXMLDocument");
+        changeScene = new ChangeSceneClass();
         stage.setOnCloseRequest(e -> {
             e.consume();             
             closeProgram();
             });
         
         stage.setTitle("Game XOXO");
-        scene = changeScene.getScene();
-        
-        changeScene.setScene("CSS_Files/viper.css");
+        scene = changeScene.installScene("FXMLDocuments/FXMLDocument");       
+        changeScene.setViperScene();
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
@@ -59,9 +58,20 @@ public class XOXO extends Application {
     }
     
     public void closeProgram(){
-        YesOrNoCloseAlertBox.displayAlertBox();        
+        try {        
+            YesOrNoCloseAlertBox.displayAlertBox();
+        } catch (IOException ex) {
+            Logger.getLogger(XOXO.class.getName()).log(Level.SEVERE, null, ex);
+        }
                 if(YesOrNoCloseAlertBox.answer)
                     stage.close();
     }
+    
+    public static void setScene(String css) throws IOException{
+        changeScene.setScene("CSS_Files/" + css +".css");
+//        scene = changeScene.getScene();
+    }
+    
+    
     
 }
