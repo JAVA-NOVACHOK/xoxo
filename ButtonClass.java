@@ -2,11 +2,11 @@
 
 package xoxo;
 
-import xoxo.Controllers.FXMLDocumentController;
 import java.util.List;
 import javafx.scene.control.Button;
-import static xoxo.Controllers.FXMLDocumentController.BUTTONS;
-import static xoxo.Controllers.FXMLDocumentController.isX;
+import static xoxo.Controllers.FXMLDocumentController1.BUTTONS;
+import static xoxo.Controllers.FXMLDocumentController1.isX;
+import xoxo.Controllers.FXMLDocumentController1;
 
 public class ButtonClass {
     
@@ -23,7 +23,7 @@ public class ButtonClass {
             }
         }
             button.setKey(true);
-            changeColorWinnerButtons(FXMLDocumentController.arrButtons);  
+            changeColorWinnerButtons(FXMLDocumentController1.arrButtons);  
     }
                       
         
@@ -49,7 +49,7 @@ public class ButtonClass {
         });
         }
     public void disable(boolean b){
-        FXMLDocumentController.BUTTONS.forEach((button) -> {
+        FXMLDocumentController1.BUTTONS.forEach((button) -> {
             button.setDisable(b);
         });
     }

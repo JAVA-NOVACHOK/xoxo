@@ -5,14 +5,27 @@
  */
 package xoxo;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import xoxo.Controllers.FXMLDocumentController1;
+import static xoxo.Controllers.FXMLDocumentController1.BUTTONS;
 
 /**
  *
@@ -23,6 +36,7 @@ public class XOXO extends Application {
     public static Scene scene;
     private static ChangeSceneClass changeScene;
     private Stage stage;
+    private String pathCSS = "C:\\Users\\Master\\Dropbox\\XOXO\\src\\xoxo\\CSS_Files";
     @Override
     public void start(Stage window) throws Exception {
         stage = window;
@@ -33,8 +47,39 @@ public class XOXO extends Application {
             });
         
         stage.setTitle("Game XOXO");
-        scene = changeScene.installScene("FXMLDocuments/FXMLDocument");       
-        changeScene.setViperScene();
+        BorderPane root = new BorderPane();        
+        GridPane pane = FXMLLoader.load(getClass().getResource("FXMLDocuments/FXMLDocument_1.fxml"));
+        root.setCenter(pane);
+        BorderPane.setMargin(pane, new Insets(0, 0, 0, 90));
+        MenuBar bar = new MenuBar();
+        Menu menuFile = new Menu("File");
+        Menu menuEdit = new Menu("Edit");
+        MenuItem restartItem = new MenuItem("Restart");        
+        restartItem.setOnAction((ActionEvent e) -> {
+            FXMLDocumentController1.activate();
+        });
+        menuFile.getItems().add(restartItem);
+        createMenu(menuEdit,pathCSS);
+        bar.getMenus().addAll(menuFile,menuEdit);
+        root.setTop(bar);
+        
+        VBox vBox = new VBox();
+        
+//        vBox.setMaxSize(10, 200);
+        Button activate = new Button("Activate");
+        activate.setId("button_restart");
+        vBox.getChildren().addAll(activate);
+        vBox.setPrefWidth(70);
+        activate.setTranslateX(55);
+        activate.setTranslateY(200);
+        activate.setOnAction(e -> {
+            FXMLDocumentController1.activate();
+        });
+        
+        root.setLeft(vBox);
+        scene = new Scene(root,650,450);
+        
+        changeScene.setScene("CSS_Files/viper.css", scene);
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
@@ -45,7 +90,7 @@ public class XOXO extends Application {
         launch(args);
     }
 
-    public Scene getScene() {
+    public static Scene getScene() {
         return scene;
     }    
     
@@ -67,10 +112,28 @@ public class XOXO extends Application {
                     stage.close();
     }
     
-    public static void setScene(String css) throws IOException{
-        changeScene.setScene("CSS_Files/" + css +".css");
-//        scene = changeScene.getScene();
+    public static ArrayList<String> fileNames(String directoryPath) {
+    File dir = new File(directoryPath);
+    ArrayList<String> files  = new ArrayList<>();
+    if(dir.isDirectory()){
+        File[] listFiles = dir.listFiles();
+        for(File file : listFiles){
+            if(file.isFile()) {
+                files.add(file.getName());
+            }
+        }
     }
+    return files;
+}
+    
+    public void createMenu(Menu menu,String path){
+        ArrayList<String> arr = fileNames(path);
+        for(String str:arr){
+          menu.getItems().add(new MenuItem(str.substring(0,str.indexOf(".css"))));
+        }
+    }
+    
+    
     
     
     

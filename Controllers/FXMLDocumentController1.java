@@ -19,13 +19,13 @@ import xoxo.ChangeSceneClass;
 import xoxo.Key;
 
 
-public class FXMLDocumentController implements Initializable{
+public class FXMLDocumentController1 implements Initializable{
     
     private String css;
     @FXML
     private ChangeSceneClass changeSceneClass;
     @FXML
-    private  ButtonClass buttonClass;
+    public static  ButtonClass buttonClass;
     @FXML
     public static ArrayList<Button[]> arrButtons = new ArrayList<>();   
     @FXML
@@ -51,8 +51,8 @@ public class FXMLDocumentController implements Initializable{
     public Key key8; 
     @FXML
     public Key key9; 
-    @FXML
-    public Button restart;
+//    @FXML
+//    public Button restart;
     
     
     @FXML  
@@ -93,20 +93,16 @@ public class FXMLDocumentController implements Initializable{
         }
     @FXML
         public void changeSceneClassViper(){
-            changeSceneClass.setViperScene();
+            changeSceneClass.setViperScene(xoxo.XOXO.scene);
         }
     @FXML
         public void changeSceneClassRedDragon(){
-            changeSceneClass.setRedDragonScene();
+            changeSceneClass.setRedDragonScene(xoxo.XOXO.scene);
         }
-        
-    @FXML
-        public void activate(){       
+            
+        public static  void activate(){               
             buttonClass.disable(false);
             buttonClass.activate();
-            for(String s:fileNames("C:\\Users\\Master\\Dropbox\\XOXO\\src\\xoxo\\CSS_Files")){
-                System.out.println(s);
-            };
             BUTTONS.forEach((key) -> {
                 key.setKey(false);
         });
@@ -117,7 +113,7 @@ public class FXMLDocumentController implements Initializable{
         changeSceneClass = xoxo.XOXO.getSetScene();
         buttonClass = new ButtonClass();
         BUTTONS.addAll(Arrays.asList(key1,key2,key3,key4,key5,key6,key7,key8,key9));
-        restart.setId("button_restart");
+//        restart.setId("button_restart");
         arrButtons.add(new Button[]{key1,key2,key3});
         arrButtons.add(new Button[]{key4,key5,key6});
         arrButtons.add(new Button[]{key7,key8,key9});
