@@ -21,7 +21,6 @@ import xoxo.Key;
 
 public class FXMLDocumentController1 implements Initializable{
     
-    private String css;
     @FXML
     private ChangeSceneClass changeSceneClass;
     @FXML
@@ -51,8 +50,6 @@ public class FXMLDocumentController1 implements Initializable{
     public Key key8; 
     @FXML
     public Key key9; 
-//    @FXML
-//    public Button restart;
     
     
     @FXML  
@@ -91,14 +88,7 @@ public class FXMLDocumentController1 implements Initializable{
         public void handle9(){        
         buttonClass.handle(key9);                 
         }
-    @FXML
-        public void changeSceneClassViper(){
-            changeSceneClass.setViperScene(xoxo.XOXO.scene);
-        }
-    @FXML
-        public void changeSceneClassRedDragon(){
-            changeSceneClass.setRedDragonScene(xoxo.XOXO.scene);
-        }
+
             
         public static  void activate(){               
             buttonClass.disable(false);
@@ -113,7 +103,6 @@ public class FXMLDocumentController1 implements Initializable{
         changeSceneClass = xoxo.XOXO.getSetScene();
         buttonClass = new ButtonClass();
         BUTTONS.addAll(Arrays.asList(key1,key2,key3,key4,key5,key6,key7,key8,key9));
-//        restart.setId("button_restart");
         arrButtons.add(new Button[]{key1,key2,key3});
         arrButtons.add(new Button[]{key4,key5,key6});
         arrButtons.add(new Button[]{key7,key8,key9});
@@ -135,7 +124,6 @@ public class FXMLDocumentController1 implements Initializable{
             }
         }
     }
-
     return files;
 }
 }

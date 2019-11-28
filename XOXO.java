@@ -36,6 +36,7 @@ public class XOXO extends Application {
     public static Scene scene;
     private static ChangeSceneClass changeScene;
     private Stage stage;
+//    private String pathCSS = "D:\\Dropbox\\XOXO\\src\\xoxo\\CSS_Files";
     private String pathCSS = "C:\\Users\\Master\\Dropbox\\XOXO\\src\\xoxo\\CSS_Files";
     @Override
     public void start(Stage window) throws Exception {
@@ -54,19 +55,19 @@ public class XOXO extends Application {
         MenuBar bar = new MenuBar();
         Menu menuFile = new Menu("File");
         Menu menuEdit = new Menu("Edit");
+        Menu menuStyles = new Menu("Styles");
+        Menu menuSize = new Menu("Size");
         MenuItem restartItem = new MenuItem("Restart");        
         restartItem.setOnAction((ActionEvent e) -> {
             FXMLDocumentController1.activate();
         });
         menuFile.getItems().add(restartItem);
-        createMenu(menuEdit,pathCSS);
+        menuEdit.getItems().addAll(menuStyles,menuSize);
+        createMenu(menuStyles,pathCSS);
         bar.getMenus().addAll(menuFile,menuEdit);
         root.setTop(bar);
-        
         VBox vBox = new VBox();
-        
-//        vBox.setMaxSize(10, 200);
-        Button activate = new Button("Activate");
+        Button activate = new Button("Restart");
         activate.setId("button_restart");
         vBox.getChildren().addAll(activate);
         vBox.setPrefWidth(70);
@@ -79,7 +80,7 @@ public class XOXO extends Application {
         root.setLeft(vBox);
         scene = new Scene(root,650,450);
         
-        changeScene.setScene("CSS_Files/viper.css", scene);
+        changeScene.setScene("CSS_Files/Viper.css", scene);
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
@@ -129,7 +130,12 @@ public class XOXO extends Application {
     public void createMenu(Menu menu,String path){
         ArrayList<String> arr = fileNames(path);
         for(String str:arr){
-          menu.getItems().add(new MenuItem(str.substring(0,str.indexOf(".css"))));
+            MenuItem item = new MenuItem(str.substring(0,str.indexOf(".css")));            
+            menu.getItems().add(item);
+            item.setOnAction(e->{
+                changeScene.setScene("CSS_Files/" + str, scene);
+            });
+          
         }
     }
     

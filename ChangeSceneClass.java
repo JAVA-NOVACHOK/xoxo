@@ -26,23 +26,7 @@ public class ChangeSceneClass {
         scene.getStylesheets().add(getClass().getResource(css).toExternalForm());
     }
     
-    public void setViperScene(Scene scene){
-            setScene("viper",scene);
-    
-    }
-    public void setRedDragonScene(Scene scene){
-    setScene("redDragon",scene);
-    
-    }
-    
-//    public Scene getScene(){
-//        return scene;
-//    }
-    
-    
-    
-    
-    
+
     
 
 }

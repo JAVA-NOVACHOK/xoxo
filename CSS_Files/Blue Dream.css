@@ -1,0 +1,102 @@
+.root {
+  -fx-height: 100%;
+  -fx-width: 100%;
+  -fx-display: flex;
+  -fx-justify-content: center;
+  -fx-align-items: center;
+  -fx-background-color: linear-gradient(to bottom, #fff , blue);
+  /*-fx-background: linear-gradient();*/
+  -fx-font-family: 'Oswald', sans-serif;
+}
+
+#button_restart{
+    -fx-background-color: fuchsia;
+    -fx-border-color: blueviolet;
+    -fx-border-width: 2px;
+    -fx-font-size: 13px;
+    -fx-background-radius: 5px;
+    
+}
+#button_restart:hover{
+  -fx-border-color: #1abc9c;
+  -fx-background-color: cornflowerblue;
+  -fx-effect: dropshadow(three-pass-box,aquamarine , 20, 0, 0, 0);
+}
+
+#winner_buttons{
+    -fx-background-color: crimson;
+    -fx-border-color: orange;
+}
+
+
+.button {    
+  -fx-text-align: center;
+  -fx-text-transform: uppercase;  
+  /*-fx-cursor: pointer;*/
+  -fx-font-size: 60px;
+  -fx-letter-spacing: 4px;
+  -fx-position: relative;
+  -fx-background-color: cyan;  
+  -fx-border-color: darkcyan;
+  -fx-border-width: 2px;
+  -fx-color: #fff;
+  /*-fx-padding: 20px;*/
+  -fx-width: 200px;
+  -fx-text-align: center;  
+  -fx-transition-duration: 0.4s;
+  -fx-overflow: hidden;
+ 
+  -fx-box-shadow: 0px, 5px, 15px, darkgrey;  
+  -fx-border-radius: 4px;
+}
+#button {    
+  -fx-text-align: center;
+  -fx-text-transform: uppercase;  
+  /*-fx-cursor: pointer;*/
+  -fx-font-size: 60px;
+  -fx-letter-spacing: 4px;
+  -fx-position: relative;
+  -fx-background-color: cyan;  
+  -fx-border-color: darkcyan;
+  -fx-border-width: 2px;
+  -fx-color: #fff;
+  /*-fx-padding: 20px;*/
+  -fx-width: 200px;
+  -fx-text-align: center;  
+  -fx-transition-duration: 0.4s;
+  -fx-overflow: hidden;
+ 
+  -fx-box-shadow: 0px, 5px, 15px, darkgrey;  
+  -fx-border-radius: 4px;
+}
+
+.button:hover {
+  -fx-background:  #fff;
+  /*-fx-padding: 10px;*/
+  -fx-background-color: #fff;
+   -fx-effect: dropshadow(gaussian,darkgrey , 30, 0, 0, 0);
+
+  color: #000;
+  
+}
+#button:hover {
+  -fx-background:  #fff;
+  /*-fx-padding: 10px;*/
+  -fx-background-color: #fff;
+   -fx-effect: dropshadow(gaussian,darkgrey , 30, 0, 0, 0);
+
+  color: #000; 
+}
+
+/*.button:active:after {
+  -fx-padding: 0;
+  -fx-margin: 0;
+  -fx-opacity: 1;
+  -fx-transition: 0s
+}*/
+
+.button:disabled{
+   -fx-opacity: 1;  
+  }
+
+
