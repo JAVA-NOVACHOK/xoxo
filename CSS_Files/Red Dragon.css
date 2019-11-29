@@ -16,7 +16,7 @@
     -fx-border-color: darkorange;
     -fx-border-width: 2px;
     -fx-font-size: 13px;
-    -fx-background-radius: 5px;
+    
     
 }
 #button_restart:hover{
@@ -37,7 +37,7 @@
   -fx-background-radius: 8px;
   -fx-text-align: center;
   -fx-text-transform: uppercase;  
-  -fx-font-size: 60px;
+  /*-fx-font-size: 60px;*/
   -fx-letter-spacing: 4px;
   -fx-background-color: orange;  
   -fx-border-color: #3f4c6b;
@@ -55,7 +55,7 @@
 -fx-background-radius: 8px;
   -fx-text-align: center;
   -fx-text-transform: uppercase;  
-  -fx-font-size: 60px;
+  /*-fx-font-size: 60px;*/
   -fx-letter-spacing: 4px;
   -fx-background-color: orange;  
   -fx-border-color: #3f4c6b;

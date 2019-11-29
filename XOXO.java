@@ -5,6 +5,7 @@
  */
 package xoxo;
 
+import xoxo.FactoryPackege.SceneFactory;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -12,7 +13,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -36,6 +36,7 @@ public class XOXO extends Application {
     public static Scene scene;
     private static ChangeSceneClass changeScene;
     private Stage stage;
+    private SceneFactory factory = new SmallSceneFactory();
 //    private String pathCSS = "D:\\Dropbox\\XOXO\\src\\xoxo\\CSS_Files";
     private String pathCSS = "C:\\Users\\Master\\Dropbox\\XOXO\\src\\xoxo\\CSS_Files";
     @Override
@@ -49,36 +50,57 @@ public class XOXO extends Application {
         
         stage.setTitle("Game XOXO");
         BorderPane root = new BorderPane();        
-        GridPane pane = FXMLLoader.load(getClass().getResource("FXMLDocuments/FXMLDocument_1.fxml"));
+        GridPane pane = FXMLLoader.load(getClass().getResource("FXMLDocuments/Medium_Size.fxml"));
         root.setCenter(pane);
-        BorderPane.setMargin(pane, new Insets(0, 0, 0, 90));
+        BorderPane.setMargin(pane, new Insets(0, 0, 0, 100));
         MenuBar bar = new MenuBar();
-        Menu menuFile = new Menu("File");
-        Menu menuEdit = new Menu("Edit");
-        Menu menuStyles = new Menu("Styles");
-        Menu menuSize = new Menu("Size");
+        Menu menuFile = new Menu("File");        
         MenuItem restartItem = new MenuItem("Restart");        
         restartItem.setOnAction((ActionEvent e) -> {
             FXMLDocumentController1.activate();
         });
         menuFile.getItems().add(restartItem);
+        
+        Menu menuEdit = new Menu("Edit");
+        Menu menuStyles = new Menu("Styles");
+        Menu menuSize = new Menu("Size");        
         menuEdit.getItems().addAll(menuStyles,menuSize);
         createMenu(menuStyles,pathCSS);
+        MenuItem small = new MenuItem("Small");
+        MenuItem medium = new MenuItem("Medium");
+        MenuItem large = new MenuItem("Large");
+        menuSize.getItems().addAll(small,medium,large);
+        
+        small.setOnAction((ActionEvent e)-> {
+                factory = new SmallSceneFactory();
+                factory.create(pane, root,stage);
+            });
+        medium.setOnAction((ActionEvent e)-> {
+                factory = new MediumSceneFactory();
+                factory.create(pane, root,stage);
+            });
+        large.setOnAction((ActionEvent e)-> {
+                factory = new LargeSceneFactory();
+                factory.create(pane, root,stage);
+            });
+        
+        
         bar.getMenus().addAll(menuFile,menuEdit);
         root.setTop(bar);
         VBox vBox = new VBox();
-        Button activate = new Button("Restart");
-        activate.setId("button_restart");
-        vBox.getChildren().addAll(activate);
+        Button activateButton = new Button("Restart");
+        activateButton.setId("button_restart");
+        vBox.getChildren().addAll(activateButton);
         vBox.setPrefWidth(70);
-        activate.setTranslateX(55);
-        activate.setTranslateY(200);
-        activate.setOnAction(e -> {
+        activateButton.setTranslateX(55);
+        activateButton.setTranslateY(225);
+        activateButton.setOnAction(e -> {
             FXMLDocumentController1.activate();
         });
         
         root.setLeft(vBox);
-        scene = new Scene(root,650,450);
+        scene = new Scene(root,650,500);
+        
         
         changeScene.setScene("CSS_Files/Viper.css", scene);
         stage.setResizable(false);
@@ -137,6 +159,10 @@ public class XOXO extends Application {
             });
           
         }
+    }
+    
+    public void setFactory(SceneFactory factory){
+        this.factory = factory;
     }
     
     

@@ -12,6 +12,8 @@
 #button_restart{
     -fx-background-color: lightcoral;
     -fx-border-color: blueviolet;
+    -fx-background-radius: 4px;
+    
     -fx-border-width: 2px;
     -fx-font-size: 13px;
     -fx-background-radius: 5px;
@@ -33,7 +35,7 @@
   -fx-text-align: center;
   -fx-text-transform: uppercase;  
   /*-fx-cursor: pointer;*/
-  -fx-font-size: 60px;
+  /*-fx-font-size: 60px;*/
   -fx-letter-spacing: 4px;
   -fx-position: relative;
   -fx-background-color: salmon;  
@@ -53,7 +55,7 @@
   -fx-text-align: center;
   -fx-text-transform: uppercase;  
   /*-fx-cursor: pointer;*/
-  -fx-font-size: 60px;
+  /*-fx-font-size: 60px;*/
   -fx-letter-spacing: 4px;
   -fx-position: relative;
   -fx-background-color: salmon;  

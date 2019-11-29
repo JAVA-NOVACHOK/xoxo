@@ -33,7 +33,7 @@
   -fx-text-align: center;
   -fx-text-transform: uppercase;  
   /*-fx-cursor: pointer;*/
-  -fx-font-size: 60px;
+  /*-fx-font-size: 60px;*/
   -fx-letter-spacing: 4px;
   -fx-position: relative;
   -fx-background-color: #16a085;  
@@ -53,7 +53,7 @@
   -fx-text-align: center;
   -fx-text-transform: uppercase;  
   /*-fx-cursor: pointer;*/
-  -fx-font-size: 60px;
+  /*-fx-font-size: 60px;*/
   -fx-letter-spacing: 4px;
   -fx-position: relative;
   -fx-background-color: #16a085;  
