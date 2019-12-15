@@ -37,8 +37,7 @@ public class XOXO extends Application {
     private static ChangeSceneClass changeScene;
     private Stage stage;
     private SceneFactory factory = new SmallSceneFactory();
-//    private String pathCSS = "D:\\Dropbox\\XOXO\\src\\xoxo\\CSS_Files";
-    private String pathCSS = "C:\\Users\\Master\\Dropbox\\XOXO\\src\\xoxo\\CSS_Files";
+    private String pathCSS = "src\\xoxo\\CSS_Files";
     @Override
     public void start(Stage window) throws Exception {
         stage = window;

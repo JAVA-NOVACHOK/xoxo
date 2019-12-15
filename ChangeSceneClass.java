@@ -14,11 +14,9 @@ public class ChangeSceneClass {
    
     public Scene installScene(String source) throws IOException{
     
-       Parent root = FXMLLoader.load(getClass().getResource(source + ".fxml"));
-    
-        Scene  scene = new Scene(root);
-      
-        return scene;
+       Parent root = FXMLLoader.load(getClass().getResource(source + ".fxml"));    
+       Scene  scene = new Scene(root);      
+       return scene;
     }
     
     public void setScene(String css,Scene scene){
